@@ -1,51 +1,67 @@
 # app/services/document_service.py
+import os
+from typing import Union
+from urllib.parse import unquote, urlparse
+from pathlib import Path
 from app.models.schemas import ProcessedResponse, LLM_OPTIONS
-from app.services.llm_service import process_image_with_llm, create_prompt
+from app.services.llm_service import process_image_with_llm, process_pdf_with_llm, create_prompt
 from app.mappings.field_mappings import MAPPINGS_BY_TYPE
 from app.core.logging import logger
 from fastapi import HTTPException
 import PIL.Image
 
-async def process_image(image: PIL.Image.Image, url: str, image_number: int, llm: LLM_OPTIONS = "gemini") -> ProcessedResponse:
+# app/services/document_service.py
+async def process_image(image: Union[PIL.Image.Image, str], url: str, image_number: int, llm: LLM_OPTIONS = "gemini") -> ProcessedResponse:
     """
-    Process a single image with LLM using mapping determined by URL.
-    
-    Args:
-        image: PIL.Image.Image object to process
-        url: URL string containing image identifier
-        image_number: Sequential number (1, 2, or 3) for logging purposes
-        llm: Which LLM to use (gemini or openai)
-    
-    Returns:
-        ProcessedResponse: Extracted data and document type
+    Process a single image or PDF with LLM using mapping determined by URL.
+    Strict URL checking based on specific patterns.
     """
-    # Determine mapping and document type from URL
+    
+    # # Parse the URL and get the filename
+    # Safely parse URL and extract filename
+    parsed_url = urlparse(url)
+    filename = unquote(parsed_url.path)  # Decode URL-encoded characters
+    filename = Path(filename).name.lower()  # Get just the filename
+
+    # Determine mapping and document type from filename
     mapping = None
     document_type = None
 
-    for bank_type, bank_mapping in MAPPINGS_BY_TYPE.items():
-        if bank_type.lower() in url.lower():
-            mapping = bank_mapping
-            document_type = bank_type
-            break
-
-    if not mapping:
+    # Strict filename checks
+    if "auspaynet" in filename:
+        document_type = "auspaynet"
+        mapping = MAPPINGS_BY_TYPE["auspaynet"]
+    elif "desna" in filename:
+        document_type = "desna"
+        mapping = MAPPINGS_BY_TYPE["desna"]
+    elif "tna" in filename:  # Exact match for tna.pdf
+        document_type = "tna1"
+        mapping = MAPPINGS_BY_TYPE["tna1"]
+    else:
         raise HTTPException(
             status_code=400,
-            detail=f"Unable to determine document type from URL for image {image_number}. Valid types: desna, tna1, auspaynet"
+            detail=f"URL filename '{filename}' doesn't match any known document patterns. "
+                   f"Expected formats: 'auspaynet tna.pdf', 'desna_Mismatch.pdf', or 'tna.pdf'"
         )
 
     # Create prompt for LLM processing
     prompt = create_prompt(mapping)
     
-    # Process image with LLM
     try:
-        extracted_data = await process_image_with_llm(image, mapping, prompt, llm)
+        if isinstance(image, str):  # This is a PDF file path
+            extracted_data = await process_pdf_with_llm(image, mapping, prompt, llm)
+            # Clean up temporary file
+            try:
+                os.unlink(image)
+            except:
+                pass
+        else:  # This is a PIL Image
+            extracted_data = await process_image_with_llm(image, mapping, prompt, llm)
         
         return ProcessedResponse(
             data=extracted_data,
             document_type=document_type
         )
     except Exception as e:
-        logger.error(f"Error processing image {image_number}: {str(e)}")
-        raise HTTPException(status_code=500, detail=f"Error processing image {image_number}: {str(e)}")
+        logger.error(f"Error processing document {image_number}: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Error processing document {image_number}: {str(e)}")

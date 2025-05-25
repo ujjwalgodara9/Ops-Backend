@@ -12,8 +12,9 @@ def setup_logger():
     logger = logging.getLogger('document_comparison')
     logger.setLevel(logging.INFO)
 
+    # Simplified formatters without request_id
     file_formatter = logging.Formatter(
-        '%(asctime)s - %(levelname)s - RequestID: %(request_id)s - %(message)s'
+        '%(asctime)s - %(levelname)s - %(message)s'
     )
     console_formatter = logging.Formatter(
         '%(asctime)s - %(levelname)s - %(message)s'

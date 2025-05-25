@@ -18,3 +18,128 @@
 2025-04-14 09:10:10,682 - INFO - RequestID: 20250414_091010_675225 - Converting base64 images to PIL images
 2025-04-14 09:10:10,690 - INFO - RequestID: 20250414_091010_675225 - Processing images with Gemini
 2025-04-14 09:10:22,591 - INFO - RequestID: 20250414_091010_675225 - Comparison completed. Status: Complete Match
+2025-04-23 16:08:56,625 - INFO - RequestID: 20250423_160856_625426 - Starting document comparison
+2025-04-23 16:08:56,628 - INFO - RequestID: 20250423_160856_625426 - Converting base64 images to PIL images
+2025-04-23 16:08:56,712 - INFO - RequestID: 20250423_160856_625426 - Processing images with Gemini
+2025-04-23 16:09:09,075 - INFO - RequestID: 20250423_160856_625426 - Comparison completed. Status: Complete Match
+2025-04-23 16:10:05,294 - INFO - RequestID: 20250423_161005_294659 - Starting document comparison
+2025-04-23 16:10:05,296 - INFO - RequestID: 20250423_161005_294659 - Converting base64 images to PIL images
+2025-04-23 16:10:05,303 - INFO - RequestID: 20250423_161005_294659 - Processing images with Gemini
+2025-04-23 16:10:17,285 - INFO - RequestID: 20250423_161005_294659 - Comparison completed. Status: Partial Match
+2025-04-24 12:49:22,429 - INFO - RequestID: 20250424_124922_427672 - Starting document comparison
+2025-04-24 12:49:22,437 - INFO - RequestID: 20250424_124922_427672 - Converting base64 images to PIL images
+2025-04-24 12:49:22,449 - INFO - RequestID: 20250424_124922_427672 - Processing images with Gemini
+2025-04-24 12:49:34,169 - INFO - RequestID: 20250424_124922_427672 - Comparison completed. Status: Complete Match
+2025-04-24 12:50:33,807 - INFO - RequestID: 20250424_125033_807200 - Starting document comparison
+2025-04-24 12:50:33,808 - INFO - RequestID: 20250424_125033_807200 - Converting base64 images to PIL images
+2025-04-24 12:50:33,811 - INFO - RequestID: 20250424_125033_807200 - Processing images with Gemini
+2025-04-24 12:50:44,804 - INFO - RequestID: 20250424_125033_807200 - Comparison completed. Status: Complete Match
+2025-04-24 12:51:11,639 - INFO - RequestID: 20250424_125111_639436 - Starting document comparison
+2025-04-24 12:51:11,640 - INFO - RequestID: 20250424_125111_639436 - Converting base64 images to PIL images
+2025-04-24 12:51:11,643 - INFO - RequestID: 20250424_125111_639436 - Processing images with Gemini
+2025-04-24 12:51:22,062 - INFO - RequestID: 20250424_125111_639436 - Comparison completed. Status: Partial Match
+2025-04-24 13:29:53,749 - INFO - RequestID: 20250424_132953_749001 - Starting document comparison
+2025-04-24 13:29:53,749 - INFO - RequestID: 20250424_132953_749001 - Converting base64 images to PIL images
+2025-04-24 13:29:53,754 - INFO - RequestID: 20250424_132953_749001 - Processing images with Gemini
+2025-04-24 13:30:06,788 - INFO - RequestID: 20250424_132953_749001 - Comparison completed. Status: Partial Match
+2025-04-24 13:30:15,133 - INFO - RequestID: 20250424_133015_133666 - Starting document comparison
+2025-04-24 13:30:15,134 - INFO - RequestID: 20250424_133015_133666 - Converting base64 images to PIL images
+2025-04-24 13:30:15,142 - INFO - RequestID: 20250424_133015_133666 - Processing images with Gemini
+2025-04-24 13:30:24,697 - INFO - RequestID: 20250424_133015_133666 - Comparison completed. Status: Partial Match
+2025-04-24 13:41:45,534 - INFO - RequestID: 20250424_134145_534995 - Starting document comparison
+2025-04-24 13:41:45,534 - INFO - RequestID: 20250424_134145_534995 - Converting base64 images to PIL images
+2025-04-24 13:41:45,538 - INFO - RequestID: 20250424_134145_534995 - Processing images with Gemini
+2025-04-24 13:41:56,878 - INFO - RequestID: 20250424_134145_534995 - Comparison completed. Status: Complete Match
+2025-04-24 13:42:43,442 - INFO - RequestID: 20250424_134243_441699 - Starting document comparison
+2025-04-24 13:42:43,442 - INFO - RequestID: 20250424_134243_441699 - Converting base64 images to PIL images
+2025-04-24 13:42:43,450 - INFO - RequestID: 20250424_134243_441699 - Processing images with Gemini
+2025-04-24 13:42:53,728 - INFO - RequestID: 20250424_134243_441699 - Comparison completed. Status: Partial Match
+2025-04-29 07:07:41,139 - INFO - RequestID: 20250429_070741_138739 - Starting document comparison
+2025-04-29 07:07:41,140 - INFO - RequestID: 20250429_070741_138739 - Converting base64 images to PIL images
+2025-04-29 07:07:41,176 - INFO - RequestID: 20250429_070741_138739 - Processing images with Gemini
+2025-04-29 07:07:53,584 - INFO - RequestID: 20250429_070741_138739 - Comparison completed. Status: Complete Match
+2025-05-25 08:38:45,951 - ERROR - RequestID: 20250525_083845_922939 - HTTP error during document comparison: Invalid base64 image data: cannot identify image file <_io.BytesIO object at 0x000001A7FBFE7F60>
+Traceback (most recent call last):
+  File "C:\Users\Ujjwal\Pictures\final demo\backend2\app\utils\helpers.py", line 38, in base64_to_image
+    return PIL.Image.open(io.BytesIO(image_data))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ujjwal\AppData\Local\Programs\Python\Python312\Lib\site-packages\PIL\Image.py", line 3305, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file <_io.BytesIO object at 0x000001A7FBFE7F60>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ujjwal\Pictures\final demo\backend2\app\api\endpoints\document_controller.py", line 29, in compare_documents
+    images = [base64_to_image(capture.data) for capture in request.captures]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ujjwal\Pictures\final demo\backend2\app\utils\helpers.py", line 40, in base64_to_image
+    raise HTTPException(status_code=400, detail=f"Invalid base64 image data: {str(e)}")
+fastapi.exceptions.HTTPException: 400: Invalid base64 image data: cannot identify image file <_io.BytesIO object at 0x000001A7FBFE7F60>
+2025-05-25 08:39:10,785 - ERROR - RequestID: 20250525_083910_759516 - HTTP error during document comparison: Invalid base64 image data: cannot identify image file <_io.BytesIO object at 0x000001A7FC0470B0>
+Traceback (most recent call last):
+  File "C:\Users\Ujjwal\Pictures\final demo\backend2\app\utils\helpers.py", line 38, in base64_to_image
+    return PIL.Image.open(io.BytesIO(image_data))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ujjwal\AppData\Local\Programs\Python\Python312\Lib\site-packages\PIL\Image.py", line 3305, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file <_io.BytesIO object at 0x000001A7FC0470B0>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ujjwal\Pictures\final demo\backend2\app\api\endpoints\document_controller.py", line 29, in compare_documents
+    images = [base64_to_image(capture.data) for capture in request.captures]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ujjwal\Pictures\final demo\backend2\app\utils\helpers.py", line 40, in base64_to_image
+    raise HTTPException(status_code=400, detail=f"Invalid base64 image data: {str(e)}")
+fastapi.exceptions.HTTPException: 400: Invalid base64 image data: cannot identify image file <_io.BytesIO object at 0x000001A7FC0470B0>
+2025-05-25 08:57:57,179 - ERROR - Validation error: Document 2 failed validation: URL filename 'desna.pdf' doesn't match any known document patterns. Expected formats: 'auspaynet tna.pdf', 'desna_Mismatch.pdf', or 'tna.pdf'
+2025-05-25 09:02:36,771 - ERROR - Processing error: invalid literal for int() with base 16: 'us'
+Traceback (most recent call last):
+  File "C:\Users\Ujjwal\Pictures\final demo\backend2\app\api\endpoints\document_controller.py", line 83, in compare_documents
+    response = await process_image(document, capture.url, idx + 1)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ujjwal\Pictures\final demo\backend2\app\services\document_service.py", line 78, in process_image
+    filename = unquote(Path(url).name.lower())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ujjwal\AppData\Local\Programs\Python\Python312\Lib\email\quoprimime.py", line 120, in unquote
+    return chr(int(s[1:3], 16))
+               ^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 16: 'us'
+2025-05-25 09:02:37,913 - ERROR - Processing error: invalid literal for int() with base 16: 'us'
+Traceback (most recent call last):
+  File "C:\Users\Ujjwal\Pictures\final demo\backend2\app\api\endpoints\document_controller.py", line 83, in compare_documents
+    response = await process_image(document, capture.url, idx + 1)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ujjwal\Pictures\final demo\backend2\app\services\document_service.py", line 78, in process_image
+    filename = unquote(Path(url).name.lower())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ujjwal\AppData\Local\Programs\Python\Python312\Lib\email\quoprimime.py", line 120, in unquote
+    return chr(int(s[1:3], 16))
+               ^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 16: 'us'
+2025-05-25 09:02:38,695 - ERROR - Processing error: invalid literal for int() with base 16: 'us'
+Traceback (most recent call last):
+  File "C:\Users\Ujjwal\Pictures\final demo\backend2\app\api\endpoints\document_controller.py", line 83, in compare_documents
+    response = await process_image(document, capture.url, idx + 1)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ujjwal\Pictures\final demo\backend2\app\services\document_service.py", line 78, in process_image
+    filename = unquote(Path(url).name.lower())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ujjwal\AppData\Local\Programs\Python\Python312\Lib\email\quoprimime.py", line 120, in unquote
+    return chr(int(s[1:3], 16))
+               ^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 16: 'us'
+2025-05-25 09:02:53,601 - ERROR - Processing error: invalid literal for int() with base 16: 'na'
+Traceback (most recent call last):
+  File "C:\Users\Ujjwal\Pictures\final demo\backend2\app\api\endpoints\document_controller.py", line 83, in compare_documents
+    response = await process_image(document, capture.url, idx + 1)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ujjwal\Pictures\final demo\backend2\app\services\document_service.py", line 78, in process_image
+    filename = unquote(Path(url).name.lower())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ujjwal\AppData\Local\Programs\Python\Python312\Lib\email\quoprimime.py", line 120, in unquote
+    return chr(int(s[1:3], 16))
+               ^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 16: 'na'
