@@ -157,6 +157,7 @@ async def process_pdf_with_llm(pdf_path: str, mapping: dict, prompt: str, llm: L
             )
         )
         
+        
         extracted_data = json.loads(response.text)
         
         # Handle response structure

@@ -11,6 +11,9 @@ class CaptureData(BaseModel):
 class CompareRequest(BaseModel):
     captures: List[CaptureData]  # List of base64-encoded images
 
+class CompareTrustRequest(BaseModel):
+    captures: List[CaptureData]  
+    
 class ProcessedResponse(BaseModel):
     data: Dict
     document_type: str
@@ -36,3 +39,24 @@ class FormFields(BaseModel):
     bsb: Optional[str] = None
     account_number: Optional[str] = None
     temporary_processing_limit_override: Optional[str] = None
+    
+class TrustInfo(BaseModel):
+    type_of_trust: Optional[str] = None
+    trustees: List[str] = []
+    trustee_address: Optional[str] = None
+    beneficiaries: List[str] = []
+    beneficiary_addresses: List[str] = []
+    abn: Optional[str] = None
+    date_executed: Optional[str] = None
+    settlor_name: Optional[str] = None
+    settled_sum: Optional[str] = None
+    governing_state: Optional[str] = None
+    unit_holders: List[dict] = []  # {name: str, units: int}
+
+class ProcessedTrustResponse(BaseModel):
+    data: TrustInfo
+
+class TrustComparisonResponse(BaseModel):
+    response1: TrustInfo
+    response2: TrustInfo
+    comparison_result: dict

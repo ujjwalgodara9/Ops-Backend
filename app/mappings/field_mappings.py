@@ -75,3 +75,90 @@ MAPPINGS_BY_TYPE = {
     "tna1": MAPPING_IMG2,
     "auspaynet": MAPPING_IMG3
 }
+
+
+# # app/mappings/trust_mappings.py
+# TRUST_FIELD_MAPPINGS = {
+#     "type_of_trust": [
+#         "Type of Trust",
+#         "Name of trust",
+#         "Trust Type"
+#     ],
+#     "trustees": [
+#         "Trustee/s Name",
+#         "Trustee",
+#         "Trustees"
+#     ],
+#     "trustee_address": [
+#         "Trustee/s Address",
+#         "Trustee Address"
+#     ],
+#     "beneficiaries": [
+#         "Beneficiary/s Name",
+#         "Initial Subscribers",
+#         "Beneficiaries"
+#     ],
+#     "beneficiary_addresses": [
+#         "Beneficiary/s Address",
+#         "Subscriber Address"
+#     ],
+#     "abn": [
+#         "ABN of Trust",
+#         "Trust ABN"
+#     ],
+#     "date_executed": [
+#         "Date Trust Executed",
+#         "Date of deed"
+#     ],
+#     "settlor_name": [
+#         "Settlor Name"
+#     ],
+#     "settled_sum": [
+#         "Settled Sum $",
+#         "Value of the Initial Units"
+#     ],
+#     "governing_state": [
+#         "Governing State",
+#         "Governing state"
+#     ],
+#     "unit_holders": [
+#         "Initial Subscriptions",
+#         "Unit Holders"
+#     ]
+# }
+
+# Global trust mapping (what all documents should conform to)
+GLOBAL_TRUST_MAPPING = {
+    "trust_type": "Type of Trust",
+    "trustees": "Trustees",
+    "trustee_address": "Trustee Address",
+    "beneficiaries": "Beneficiaries",
+    "date_executed": "Date Executed",
+    "settled_sum": "Settled Sum",
+    "governing_state": "Governing State",
+    "unit_holders": "Unit Holders"
+}
+
+# Document-specific mappings
+TRUST_MAPPINGS_BY_TYPE = {
+    "online": {
+        "Type of Trust:": "trust_type",
+        "Trustee/s Name:": "trustees",
+        "Trustee/s Address:": "trustee_address",
+        "Beneficiary/s Name:": "beneficiaries",
+        "Date Trust Executed:": "date_executed",
+        "Settled Sum $:": "settled_sum",
+        "Governing State:": "governing_state",
+        "Initial Subscriptions:": "unit_holders"
+    },
+    "schedule": {
+        "Name of trust": "trust_type",
+        "Trustee": "trustees",
+        "Trustee Address": "trustee_address",
+        "Initial Subscribers": "beneficiaries",
+        "Date of deed": "date_executed",
+        "Value of the Initial Units": "settled_sum",
+        "Governing state": "governing_state",
+        "Initial Subscriptions": "unit_holders"
+    }
+}

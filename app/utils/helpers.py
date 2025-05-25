@@ -19,7 +19,7 @@ def base64_to_file(base64_str: str) -> Union[PIL.Image.Image, str]:
         file_data = base64.b64decode(base64_str)
         
         # Check if it's a PDF
-        if base64_str.startswith("JVBERi0xLjQK") or base64_str[:4] == "%PDF":
+        if base64_str.startswith("JVBERi0xLjQK") or base64_str[:4] == "%PDF" or file_data.startswith(b'%PDF') or b'PDF-' in file_data[:1024] or file_data.rstrip().endswith(b'%%EOF'):
             # Create a temporary PDF file
             with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as temp_pdf:
                 temp_pdf.write(file_data)
